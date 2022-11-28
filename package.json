@@ -1,0 +1,21 @@
+{
+  "name": "auth-codespaces",
+  "version": "1.0.0",
+  "description": "Practise base project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarshanBorse/Auth-Codespaces.git"
+  },
+  "keywords": [],
+  "author": "Darshan Borse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarshanBorse/Auth-Codespaces/issues"
+  },
+  "homepage": "https://github.com/DarshanBorse/Auth-Codespaces#readme"
+}
