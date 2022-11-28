@@ -5,15 +5,18 @@ const User = require("./models/user");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+const auth = require("./middleware/auth");
 
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+// Simple route
 app.get("/", (req, res) => {
   res.send("<h1>Server is running.</h1>");
 });
 
+// Register route
 app.post("/register", async (req, res) => {
   try {
     // get all data from body
@@ -52,6 +55,7 @@ app.post("/register", async (req, res) => {
   }
 });
 
+// Login route
 app.post("/login", async (req, res) => {
   try {
     // get all data from frontend
@@ -101,6 +105,16 @@ app.post("/login", async (req, res) => {
   } catch (error) {
     console.log("login", error);
   }
+});
+
+// Logotu route
+app.get("/logout", async (req, res) => {
+  return res.status(200).cookie("token", "").json({ success: true, message: "Successfully logout." });
+});
+
+app.get("/dashboard", auth, async (req, res) => {
+  // query to db for that user id
+  return res.send("Welcome to dashboard");
 });
 
 module.exports = app;
